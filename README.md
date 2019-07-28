@@ -82,14 +82,3 @@ sending back the object: `{errors: arr}`. So, in that case even if some of the
 underlying vsm-dictionaries have errors, we still return the results from the 
 other dictionaries (*flexible* error handling). If `errorIfAllErrors` is *false*, 
 then we return the first error (object) that occurs (*strict* error handling).
-
-#### `getRefTerms()` - TODO
-
-We currently do not support the `getRefTerms()` because none of the 
-vsm-dictionaries that communicate with external APIs and databases up to date 
-implement it. 
-
-Note that the implementation should check if one or more of the combined 
-vsm-dictionaries implement the `getRefTerms()` and return the merged results or 
-if it detects that none implements it, then it should get and return the `refTerms` 
-from the parent VsmDictionary's getRefTerms(). 
