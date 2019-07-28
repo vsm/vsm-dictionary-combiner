@@ -5,7 +5,6 @@
   "main": "src/DictionaryCombiner.js",
   "scripts": {
     "lint": "eslint src test",
-    "test": "mocha \"src/**/*.test.js\" --check-leaks",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [
