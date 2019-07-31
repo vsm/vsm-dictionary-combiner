@@ -57,7 +57,8 @@ were given to the constructor**. This means that the `options.perPage` and
 cutoff whatsoever will be applied to the merged result array object.
 
 - A **key configuration option** is the `dictionaries` property - an array 
-of VsmDictionary classes that the combiner package will use:
+of VsmDictionary classes that the combiner package will use (other objects
+are ignored):
 
 ```js
 const DictionaryCombiner          = require('vsm-dictionary-combiner');

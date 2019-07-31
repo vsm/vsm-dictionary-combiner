@@ -20,32 +20,35 @@ module.exports = class DictionaryCombiner extends Dictionary {
     let errors = [];
 
     for (let dict of this.dictionaries) {
-      resMap.set(dict, {});
-
-      if (typeof dict.getDictInfos === 'function') {
-        dict.getDictInfos(options, (err, res) => {
-          // found err and errorIfAllErrors is false
-          if (err && !this.errorIfAllErrors) return cb(err);
-          errors.push(err);
-          resMap.set(dict, res);
-
-          --callsRemaining;
-          // all calls have returned
-          if (callsRemaining <= 0) {
-            let res = [];
-            for (let value of resMap.values())
-              if (typeof value !== 'undefined') // in case there was an error
-                res = res.concat(value.items);
-
-            if (errors.every(err => err !== null)) {
-              // if every call returned an error
-              cb({ errors: errors });
-            } else {
-              cb(null, { items: res });
-            }
-          }
-        });
+      if (typeof dict.getDictInfos === 'function')
+        resMap.set(dict, {});
+      else {
+        --callsRemaining;
+        continue;
       }
+
+      dict.getDictInfos(options, (err, res) => {
+        // found err and errorIfAllErrors is false
+        if (err && !this.errorIfAllErrors) return cb(err);
+        errors.push(err);
+        resMap.set(dict, res);
+
+        --callsRemaining;
+        // all calls have returned
+        if (callsRemaining <= 0) {
+          let res = [];
+          for (let value of resMap.values())
+            if (typeof value !== 'undefined') // in case there was an error
+              res = res.concat(value.items);
+
+          if (errors.every(err => err !== null)) {
+            // if every call returned an error
+            cb({ errors: errors });
+          } else {
+            cb(null, { items: res });
+          }
+        }
+      });
     }
   }
 
@@ -57,32 +60,35 @@ module.exports = class DictionaryCombiner extends Dictionary {
     let errors = [];
 
     for (let dict of this.dictionaries) {
-      resMap.set(dict, {});
-
-      if (typeof dict.getEntries === 'function') {
-        dict.getEntries(options, (err, res) => {
-          // found err and errorIfAllErrors is false
-          if (err && !this.errorIfAllErrors) return cb(err);
-          errors.push(err);
-          resMap.set(dict, res);
-
-          --callsRemaining;
-          // all calls have returned
-          if (callsRemaining <= 0) {
-            let res = [];
-            for (let value of resMap.values())
-              if (typeof value !== 'undefined') // in case there was an error
-                res = res.concat(value.items);
-
-            if (errors.every(err => err !== null)) {
-              // if every call returned an error
-              cb({ errors: errors });
-            } else {
-              cb(null, { items: res });
-            }
-          }
-        });
+      if (typeof dict.getEntries === 'function')
+        resMap.set(dict, {});
+      else {
+        --callsRemaining;
+        continue;
       }
+
+      dict.getEntries(options, (err, res) => {
+        // found err and errorIfAllErrors is false
+        if (err && !this.errorIfAllErrors) return cb(err);
+        errors.push(err);
+        resMap.set(dict, res);
+
+        --callsRemaining;
+        // all calls have returned
+        if (callsRemaining <= 0) {
+          let res = [];
+          for (let value of resMap.values())
+            if (typeof value !== 'undefined') // in case there was an error
+              res = res.concat(value.items);
+
+          if (errors.every(err => err !== null)) {
+            // if every call returned an error
+            cb({ errors: errors });
+          } else {
+            cb(null, { items: res });
+          }
+        }
+      });
     }
   }
 
@@ -96,32 +102,35 @@ module.exports = class DictionaryCombiner extends Dictionary {
     let errors = [];
 
     for (let dict of this.dictionaries) {
-      resMap.set(dict, {});
-
-      if (typeof dict.getEntryMatchesForString === 'function') {
-        dict.getEntryMatchesForString(str, options, (err, res) => {
-          // found err and errorIfAllErrors is false
-          if (err && !this.errorIfAllErrors) return cb(err);
-          errors.push(err);
-          resMap.set(dict, res);
-
-          --callsRemaining;
-          // all calls have returned
-          if (callsRemaining <= 0) {
-            let res = [];
-            for (let value of resMap.values())
-              if (typeof value !== 'undefined') // in case there was an error
-                res = res.concat(value.items);
-
-            if (errors.every(err => err !== null)) {
-              // if every call returned an error
-              cb({ errors: errors });
-            } else {
-              cb(null, { items: res });
-            }
-          }
-        });
+      if (typeof dict.getEntryMatchesForString === 'function')
+        resMap.set(dict, {});
+      else {
+        --callsRemaining;
+        continue;
       }
+
+      dict.getEntryMatchesForString(str, options, (err, res) => {
+        // found err and errorIfAllErrors is false
+        if (err && !this.errorIfAllErrors) return cb(err);
+        errors.push(err);
+        resMap.set(dict, res);
+
+        --callsRemaining;
+        // all calls have returned
+        if (callsRemaining <= 0) {
+          let res = [];
+          for (let value of resMap.values())
+            if (typeof value !== 'undefined') // in case there was an error
+              res = res.concat(value.items);
+
+          if (errors.every(err => err !== null)) {
+            // if every call returned an error
+            cb({ errors: errors });
+          } else {
+            cb(null, { items: res });
+          }
+        }
+      });
     }
   }
 
