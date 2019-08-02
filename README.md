@@ -16,7 +16,7 @@ vsm-dictionaries (namely [vsm-dictionary-uniprot](https://github.com/vsmjs/vsm-d
 [vsm-dictionary-ensembl](https://github.com/vsmjs/vsm-dictionary-ensembl) and 
 [vsm-dictionary-bioportal](https://github.com/vsmjs/vsm-dictionary-bioportal)), 
 go to the `test` directory and run:
-```
+```js
 node getDictInfos.test.js
 node getEntries.test.js
 node getEntryMatchesForString.test.js
