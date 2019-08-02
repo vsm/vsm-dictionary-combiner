@@ -18,6 +18,7 @@ module.exports = class DictionaryCombiner extends Dictionary {
 
     const resMap = new Map();
     let errors = [];
+    let answered = false;
 
     for (let dict of this.dictionaries) {
       if (typeof dict.getDictInfos === 'function')
@@ -28,12 +29,17 @@ module.exports = class DictionaryCombiner extends Dictionary {
       }
 
       dict.getDictInfos(options, (err, res) => {
-        // found err and errorIfAllErrors is false
-        if (err && !this.errorIfAllErrors) return cb(err);
+        if (err && !this.errorIfAllErrors && !answered) {
+          errors.push(err);
+          answered = true;
+          --callsRemaining;
+          return cb(err);
+        }
+
         errors.push(err);
         resMap.set(dict, res);
-
         --callsRemaining;
+
         // all calls have returned
         if (callsRemaining <= 0) {
           let res = [];
@@ -41,11 +47,13 @@ module.exports = class DictionaryCombiner extends Dictionary {
             if (typeof value !== 'undefined') // in case there was an error
               res = res.concat(value.items);
 
-          if (errors.every(err => err !== null)) {
-            // if every call returned an error
-            cb({ errors: errors });
-          } else {
-            cb(null, { items: res });
+          if (!answered) {
+            if (errors.every(err => err !== null)) {
+              // if every call returned an error
+              cb({errors: errors});
+            } else {
+              cb(null, {items: res});
+            }
           }
         }
       });
@@ -58,6 +66,7 @@ module.exports = class DictionaryCombiner extends Dictionary {
 
     const resMap = new Map();
     let errors = [];
+    let answered = false;
 
     for (let dict of this.dictionaries) {
       if (typeof dict.getEntries === 'function')
@@ -68,12 +77,17 @@ module.exports = class DictionaryCombiner extends Dictionary {
       }
 
       dict.getEntries(options, (err, res) => {
-        // found err and errorIfAllErrors is false
-        if (err && !this.errorIfAllErrors) return cb(err);
+        if (err && !this.errorIfAllErrors && !answered) {
+          errors.push(err);
+          answered = true;
+          --callsRemaining;
+          return cb(err);
+        }
+
         errors.push(err);
         resMap.set(dict, res);
-
         --callsRemaining;
+
         // all calls have returned
         if (callsRemaining <= 0) {
           let res = [];
@@ -81,11 +95,13 @@ module.exports = class DictionaryCombiner extends Dictionary {
             if (typeof value !== 'undefined') // in case there was an error
               res = res.concat(value.items);
 
-          if (errors.every(err => err !== null)) {
-            // if every call returned an error
-            cb({ errors: errors });
-          } else {
-            cb(null, { items: res });
+          if (!answered) {
+            if (errors.every(err => err !== null)) {
+              // if every call returned an error
+              cb({errors: errors});
+            } else {
+              cb(null, {items: res});
+            }
           }
         }
       });
@@ -100,6 +116,7 @@ module.exports = class DictionaryCombiner extends Dictionary {
 
     const resMap = new Map();
     let errors = [];
+    let answered = false;
 
     for (let dict of this.dictionaries) {
       if (typeof dict.getEntryMatchesForString === 'function')
@@ -110,12 +127,17 @@ module.exports = class DictionaryCombiner extends Dictionary {
       }
 
       dict.getEntryMatchesForString(str, options, (err, res) => {
-        // found err and errorIfAllErrors is false
-        if (err && !this.errorIfAllErrors) return cb(err);
+        if (err && !this.errorIfAllErrors && !answered) {
+          errors.push(err);
+          answered = true;
+          --callsRemaining;
+          return cb(err);
+        }
+
         errors.push(err);
         resMap.set(dict, res);
-
         --callsRemaining;
+
         // all calls have returned
         if (callsRemaining <= 0) {
           let res = [];
@@ -123,11 +145,13 @@ module.exports = class DictionaryCombiner extends Dictionary {
             if (typeof value !== 'undefined') // in case there was an error
               res = res.concat(value.items);
 
-          if (errors.every(err => err !== null)) {
-            // if every call returned an error
-            cb({ errors: errors });
-          } else {
-            cb(null, { items: res });
+          if (!answered) {
+            if (errors.every(err => err !== null)) {
+              // if every call returned an error
+              cb({errors: errors});
+            } else {
+              cb(null, {items: res});
+            }
           }
         }
       });
