@@ -19,12 +19,15 @@ const dictCombiner = new DictionaryCombiner({
   errorIfAllErrors: false
 });
 
-dictCombiner.getEntryMatchesForString('tp53', { page: 1, perPage: 10 },
-  (err, res) => {
-    if (err) console.log(JSON.stringify(err, null, 4));
-    else {
-      console.log(JSON.stringify(res, null, 4));
-      console.log('\n#Results: ' + res.items.length);
-    }
+dictCombiner.getEntryMatchesForString('tp53', { page: 1, perPage: 10,
+  filter: { dictID: [
+    'http://data.bioontology.org/ontologies/REXO',
+    'https://www.ensembl.org'
+  ]}
+}, (err, res) => {
+  if (err) console.log(JSON.stringify(err, null, 4));
+  else {
+    console.log(JSON.stringify(res, null, 4));
+    console.log('\n#Results: ' + res.items.length);
   }
-);
+});

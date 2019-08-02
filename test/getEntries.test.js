@@ -26,7 +26,12 @@ dictCombiner.getEntries({
       'https://www.ensembl.org/id/ENSG00000142208',
       'http://purl.bioontology.org/ontology/MEDDRA/10053571',
       'https://www.uniprot.org/uniprot/P53142'
-    ]},
+    ],
+    dictID: [
+      'http://data.bioontology.org/ontologies/MEDDRA',
+      'https://www.uniprot.org'
+    ]
+  },
   page: 1,
   perPage: 2
 }, (err, res) => {

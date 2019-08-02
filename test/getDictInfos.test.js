@@ -21,6 +21,8 @@ const dictCombiner = new DictionaryCombiner({
 
 dictCombiner.getDictInfos({ filter: {
   id: [
+    'https://www.uniprot.org',
+    'https://www.ensembl.org',
     'http://data.bioontology.org/ontologies/CHEAR',
     'http://data.bioontology.org/ontologies/GO',
     'nonValidOntologyName'
