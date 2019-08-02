@@ -16,7 +16,7 @@ vsm-dictionaries (namely [vsm-dictionary-uniprot](https://github.com/vsmjs/vsm-d
 [vsm-dictionary-ensembl](https://github.com/vsmjs/vsm-dictionary-ensembl) and 
 [vsm-dictionary-bioportal](https://github.com/vsmjs/vsm-dictionary-bioportal)), 
 go to the `test` directory and run:
-```js
+```
 node getDictInfos.test.js
 node getEntries.test.js
 node getEntryMatchesForString.test.js
@@ -38,9 +38,12 @@ header of an HTML file.
 
 Note that you should **always include** all other vsm-dictionaries that the 
 combiner package will use either by using `require()` (in Node.js) or by 
-including the specific script source for each package in the HTML header.
+including the specific script source for each package in the HTML header. See
+the `combiner+vsm-box.test.html` file in the `test` directory for a demo of
+the `vsm-dictionary-combiner` integrated in a [vsm-box](https://github.com/vsmjs/vsm-box) 
+and how to include the minified distribution built files for each vsm-dictionary.
 
-## Specification 
+## Specification
 
 Since the `vsm-dictionary-combiner` follows the parent's class 
 [specification](https://github.com/vsmjs/vsm-dictionary/blob/master/Dictionary.spec.md),
