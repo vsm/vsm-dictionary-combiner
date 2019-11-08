@@ -1,5 +1,11 @@
 # vsm-dictionary-combiner
 
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/vsmjs/vsm-dictionary-combiner.svg?branch=master)](https://travis-ci.org/vsmjs/vsm-dictionary-combiner)
+[![npm version](https://img.shields.io/npm/v/vsm-dictionary-combiner)](https://www.npmjs.com/package/vsm-dictionary-combiner)
+[![Downloads](https://img.shields.io/npm/dm/vsm-dictionary-combiner)](https://www.npmjs.com/package/vsm-dictionary-combiner)
+<!-- badges: end -->
+
 ## Summary
 
 `vsm-dictionary-combiner` is an implementation 
