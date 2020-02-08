@@ -92,3 +92,7 @@ sending back the object: `{errors: arr}`. So, in that case even if some of the
 underlying vsm-dictionaries have errors, we still return the results from the 
 other dictionaries (*flexible* error handling). If `errorIfAllErrors` is *false*, 
 then we return the first error (object) that occurs (*strict* error handling).
+
+## License
+
+This project is licensed under the AGPL license - see [LICENSE.md](LICENSE.md).
