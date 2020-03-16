@@ -16,6 +16,10 @@ though from other vsm-dictionaries in the sense that it does not communicate
 with any external data source directly, but gets results from other `vsm-dictionary-xyz` 
 packages and combines them.
 
+## Install
+
+Run: `npm install`
+
 ## Example use
 
 To see an example of how to use this package to get results from 3 
