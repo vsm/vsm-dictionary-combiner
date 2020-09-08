@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vsmjs/vsm-dictionary-combiner.git"
+    "url": "git+https://github.com/vsm/vsm-dictionary-combiner.git"
   },
   "author": "John Zobolas",
   "license": "AGPL-3.0",
@@ -45,7 +45,7 @@
     "vsm-dictionary": "^2.6.6"
   },
   "bugs": {
-    "url": "https://github.com/vsmjs/vsm-dictionary-combiner/issues"
+    "url": "https://github.com/vsm/vsm-dictionary-combiner/issues"
   },
-  "homepage": "https://github.com/vsmjs/vsm-dictionary-combiner#readme"
+  "homepage": "https://github.com/vsm/vsm-dictionary-combiner#readme"
 }
