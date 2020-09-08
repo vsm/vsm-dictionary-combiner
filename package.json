@@ -1,6 +1,6 @@
 {
   "name": "vsm-dictionary-combiner",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Implementation of a VSM-dictionary combiner package which merges results from different VSM-dictionaries",
   "main": "src/DictionaryCombiner.js",
   "scripts": {
