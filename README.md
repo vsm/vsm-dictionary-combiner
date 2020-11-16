@@ -35,24 +35,16 @@ node getEntryMatchesForString.test.js
 
 ## 'Build' configuration
 
-To use a VsmDictionary in Node.js, one can simply run `npm install` and then
-use `require()`. But it is also convenient to have a version of the code that
-can just be loaded via a &lt;script&gt;-tag in the browser.
+To use a VsmDictionary in Node.js, one can simply run `npm install` and then use `require()`.
+But it is also convenient to have a version of the code that can just be loaded via a `<script>`-tag in the browser.
 
-Therefore, we included `webpack.config.js`, which is a Webpack configuration 
-file for generating such a browser-ready package.
+Therefore, we included [webpack.config.js](https://github.com/vsm/vsm-dictionary-combiner/blob/master/webpack.config.js), which is a Webpack configuration file for generating such a browser-ready package.
 
-By running `npm build`, the built file will appear in a 'dist' subfolder. 
-You can use it by including: 
-`<script src="../dist/vsm-dictionary-combiner.min.js"></script>` in the
-header of an HTML file. 
+By running `npm build`, the built file will appear in a 'dist' subfolder.
+You can use it by including: `<script src="../dist/vsm-dictionary-combiner.min.js"></script>` in the header of an HTML file.
 
-Note that you should **always include** all other vsm-dictionaries that the 
-combiner package will use either by using `require()` (in Node.js) or by 
-including the specific script source for each package in the HTML header. See
-the `combiner+vsm-box.test.html` file in the `test` directory for a demo of
-the `vsm-dictionary-combiner` integrated in a [vsm-box](https://github.com/vsm/vsm-box) 
-and how to include the minified distribution built files for each vsm-dictionary.
+Note that you should **always include** all other vsm-dictionaries that the combiner package will use either by using `require()` (in Node.js) or by including the specific script source for each package in the HTML header.
+See the [example HTML file](https://github.com/vsm/vsm-dictionary-combiner/blob/master/test/combiner%2Bvsm-box.test.html) in the `test` directory for a demo of the `vsm-dictionary-combiner` integrated in a [vsm-box](https://github.com/vsm/vsm-box) and how to include the minified distribution built files for each respective vsm-dictionary.
 
 ## Specification
 
@@ -74,7 +66,7 @@ cutoff whatsoever will be applied to the merged result array object.
 of VsmDictionary classes that the combiner package will use (other objects
 are ignored):
 
-```js
+```javascript
 const DictionaryCombiner          = require('vsm-dictionary-combiner');
 const VsmDictionaryUniprot        = require('vsm-dictionary-uniprot');
 const VsmDictionaryEnsembl        = require('vsm-dictionary-ensembl');
