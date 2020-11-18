@@ -20,9 +20,9 @@
   // initialize various vsm-dictionaries
   var VsmDictComplexPortal  = new VsmDictionaryComplexPortal({log: true});
   var VsmDictEnsemblGenomes = new VsmDictionaryEnsemblGenomes({log: true});
-  var VsmDictEnsembl    	= new VsmDictionaryEnsembl({log: true});
-  var VsmDictRNAcentral  	= new VsmDictionaryRNAcentral({log: true});
-  var VsmDictUniProt     	= new VsmDictionaryUniProt({log: true});
+  var VsmDictEnsembl        = new VsmDictionaryEnsembl({log: true});
+  var VsmDictRNAcentral     = new VsmDictionaryRNAcentral({log: true});
+  var VsmDictUniProt        = new VsmDictionaryUniProt({log: true});
   var key = '5904481f-f6cb-4c71-94d8-3b775cf0f19e';
   var VsmDictBioPortal      = new VsmDictionaryBioPortal({ log: true, apiKey: key });
 
@@ -41,8 +41,7 @@
     errorIfAllErrors: true
   });
 
-  var vsmbox = document.getElementsByTagName('vsm-box')[0];
-  vsmbox.maxStringLengths = { str: 120, strAndDescr: 140 };
+  var vsmBox = document.getElementsByTagName('vsm-box')[0];
   var queryOptions = { perPage: 5 };
   var initialValue = {
     terms: [
@@ -69,7 +68,9 @@
         },
         placeholder: 'interaction',
         maxWidth: 600,
-        str: 'RNA binding', classID: 'http://purl.obolibrary.org/obo/GO_0003723', instID: null
+        str: 'RNA binding',
+        classID: 'http://purl.obolibrary.org/obo/GO_0003723',
+        instID: null
       },
       { // query only ensembl-genomes and RNAcentral
         queryOptions: {
@@ -84,9 +85,12 @@
     ]
   };
 
-  vsmbox.vsmDictionary = dictionary;
-  vsmbox.initialValue = initialValue;
-  vsmbox.queryOptions = queryOptions;
-  vsmbox.sizes = { minWidth: 400 };
+  vsmBox.vsmDictionary = dictionary;
+  vsmBox.initialValue  = initialValue;
+  vsmBox.queryOptions  = queryOptions;
+  vsmBox.maxStringLengths = { str: 120, strAndDescr: 140 };
+  vsmBox.sizes = { minWidth: 400 };
+
+  setTimeout(() => vsmBox.querySelector('input').focus(), 250);
 </script>
 </html>
