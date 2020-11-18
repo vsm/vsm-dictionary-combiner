@@ -6,7 +6,7 @@ module.exports = {
     mocha: true
   },
   globals: {
-    VsmDictionaryUniprot: true,
+    VsmDictionaryCombiner: true,
   },
   parserOptions: {
     ecmaVersion: 2018
