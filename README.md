@@ -68,13 +68,13 @@ are ignored):
 
 ```javascript
 const DictionaryCombiner          = require('vsm-dictionary-combiner');
-const VsmDictionaryUniprot        = require('vsm-dictionary-uniprot');
+const VsmDictionaryUniProt        = require('vsm-dictionary-uniprot');
 const VsmDictionaryEnsembl        = require('vsm-dictionary-ensembl');
 const VsmDictionaryEnsemblGenomes = require('vsm-dictionary-ensembl-genomes');
 
 const dictCombiner = new DictionaryCombiner({
   dictionaries: [
-    new VsmDictionaryUniprot(),
+    new VsmDictionaryUniProt(),
     new VsmDictionaryEnsembl(),
     new VsmDictionaryEnsemblGenomes()
   ]

@@ -4,7 +4,7 @@
  */
 
 const DictionaryCombiner     = require('../src/DictionaryCombiner');
-const VsmDictionaryUniprot   = require('vsm-dictionary-uniprot');
+const VsmDictionaryUniProt   = require('vsm-dictionary-uniprot');
 const VsmDictionaryEnsembl   = require('vsm-dictionary-ensembl');
 const VsmDictionaryBioPortal = require('vsm-dictionary-bioportal');
 
@@ -12,7 +12,7 @@ const bioPortalAPIKey = '5904481f-f6cb-4c71-94d8-3b775cf0f19e';
 
 const dictCombiner = new DictionaryCombiner({
   dictionaries: [
-    new VsmDictionaryUniprot({log: true}),
+    new VsmDictionaryUniProt({log: true}),
     new VsmDictionaryBioPortal({apiKey: bioPortalAPIKey, log: true}),
     new VsmDictionaryEnsembl({log: true})
   ],
