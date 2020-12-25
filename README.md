@@ -1,7 +1,7 @@
 # vsm-dictionary-combiner
 
 <!-- badges: start -->
-[![Build Status](https://travis-ci.com/vsm/vsm-dictionary-combiner.svg?branch=master)](https://travis-ci.com/vsm/vsm-dictionary-combiner)
+[![Node.js CI](https://github.com/vsm/vsm-dictionary-combiner/workflows/Node.js%20CI/badge.svg)](https://github.com/vsm/vsm-dictionary-combiner/actions)
 [![npm version](https://img.shields.io/npm/v/vsm-dictionary-combiner)](https://www.npmjs.com/package/vsm-dictionary-combiner)
 [![Downloads](https://img.shields.io/npm/dm/vsm-dictionary-combiner)](https://www.npmjs.com/package/vsm-dictionary-combiner)
 [![License](https://img.shields.io/npm/l/vsm-dictionary-combiner)](#license)
